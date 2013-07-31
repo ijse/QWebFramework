@@ -1,0 +1,95 @@
+<% include ../layout/main.ejs %>
+
+<% var content = function(buf) { %>
+<div class="portlet box blue ">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-reorder"></i>添加应用</div>
+	</div>
+	<div class="portlet-body form">
+		<form action="#" class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="isUsed"></label>
+				<div class="controls">
+					<label class="radio"><input type="radio" name="isUsed" value="1" />前台显示</label>
+					<label class="radio"><input type="radio" name="isUsed" value="2" />前台不显示</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="appName">关联游戏</label>
+				<div class="controls">
+					<select class="span6 chosen" data-placeholder="选择一个专题" tabindex="1">
+						<% 
+						if (!(typeof gameList === "undefined")){
+							for(var i=0; i<gameList.length; i++){ %>
+							<option value="<%= gameList[i]%>"><%= gameList[i]%></option>
+							<% }
+						} %>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="appName">所属专题</label>
+				<div class="controls">
+					<select data-placeholder="Your Favorite Football Teams" class="chosen span6" multiple="multiple" tabindex="6">
+						<option value=""></option>
+						<%
+						if(!(typeof subjectList === "undefined")){
+							for(var i=0; i<subjectList.length; i++){
+						%>
+								<option value="<%= subjectList[i]%>"><%= subjectList[i]%></option>
+						<%
+							}
+						}
+						%>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="tags">推广标签</label>
+				<div class="controls">
+					<label class="radio"><input type="radio" name="tags" value="0" checked />无</label>
+					<label class="radio"><input type="radio" name="tags" value="1" />热</label>
+					<label class="radio"><input type="radio" name="tags" value="2" />新</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="appName">应用名称</label>
+				<div class="controls">
+					<input type="text" name="appName" pattern="^[^\\/:*?&quot;&quot;&lt;&gt;|]+$" required placeholder="不能包含^ | * ? / \ &quot; &quot; 等字符 " value="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="weight">权重</label>
+				<div class="controls">
+					<input type="range" min="0" max="1000" value="500" name="weight" onchange="weightDisplay.value=value">
+					<output id="weightDisplay">500</output>
+				</div>
+			</div>
+			<div class="control-group">
+
+				<label class="control-label">应用图片（小）<br>
+					<span class="label label-important">96</span>
+					X
+					<span class="label label-important">96</span>
+				</label>
+
+				<div class="controls">
+
+					<div class="fileupload fileupload-new" data-provides="fileupload">
+					    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+					    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+					    <div>
+					    	<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="smallPic" type="file" /></span>
+					    	<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+					    </div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</div>
+<script src="/js/app/add.js"></script>
+<% } %>
+
+<%-macro(layout.main, content) %>

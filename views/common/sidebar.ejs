@@ -1,0 +1,87 @@
+	<!-- BEGIN SIDEBAR -->
+
+	<div class="page-sidebar nav-collapse collapse">
+
+		<!-- BEGIN SIDEBAR MENU -->        
+
+		<ul class="page-sidebar-menu">
+
+			<li>
+
+				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+				<div class="sidebar-toggler hidden-phone"></div>
+
+				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+			</li>
+
+			<li>
+
+				<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+
+				<form class="sidebar-search">
+
+					<div class="input-box">
+
+						<a href="javascript:;" class="remove"></a>
+
+						<input type="text" placeholder="Search..." />
+
+						<input type="button" class="submit" value=" " />
+
+					</div>
+
+				</form>
+
+				<!-- END RESPONSIVE QUICK SEARCH FORM -->
+
+			</li>
+
+
+			<% SidebarMenu.forEach(function(menu, index, arr) { %>
+
+				<% 	
+					var licls = '';
+					if(0 === index) { 
+						licls = 'start';
+					} else if(arr.length - 1 === index) {
+						licls = 'last';
+					}
+					if(menu.current) {
+						licls += ' active';
+					}
+				%>
+				<li class="<%= licls %>">
+					<a href="<%= BASE_PATH %><%= menu.url %>">
+					<i class="<%= menu.icon %>"></i> 
+					<span class="title"><%= menu.title %></span>
+
+					<% if(menu.current) { %> 
+						<span class="selected"></span> 
+					<% } %>
+
+					<% if(menu.submenus && menu.submenus.length > 0) { %>
+						<span class="arrow"></span>
+					</a>
+						<ul class="sub-menu">
+						<% menu.submenus.forEach(function(submenu, index) {  %>
+							<li class="<%= submenu.current ? 'active' : '' %>">
+								<a href="<%= BASE_PATH %><%= submenu.url %>">
+									<%= submenu.title %>
+								</a>
+							</li>						
+						<% }) %>
+						</ul>
+					<% } else { %>
+					</a>
+					<% } %>
+				</li>
+			<% })  %>
+		</ul>
+
+		<!-- END SIDEBAR MENU -->
+
+	</div>
+
+	<!-- END SIDEBAR -->

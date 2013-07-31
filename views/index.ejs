@@ -1,0 +1,17 @@
+<% include /layout/main.ejs %>
+
+<% var content = function(buf) { %>
+	
+	hello <strong>world</strong> , index.ejs 
+	<%if(typeof title !== "undefined") { %>
+		<%=title %>
+	<% } %>
+	<b> abc</b>
+
+<% } %>
+
+<% var js = function(buf) { %>
+<script src="/js/test.js"></script>
+<% } %>
+
+<%-macro(layout.main, content, js) %>

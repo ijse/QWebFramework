@@ -1,0 +1,11 @@
+<% include config.ejs %>
+
+<% mixin_foot = function(buf, js) {  %>
+	<% include ./page_footer.ejs %>
+	<% include ./page_foot.ejs %>
+<% } %>
+
+<% mixin_head = function(buf) { %>
+	<% include ./page_head.ejs %>
+	<% include ./page_header.ejs %>
+<% } %>

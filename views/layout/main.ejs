@@ -1,0 +1,30 @@
+<% include ../common/index.ejs %>
+<% layout.main = function(buf, content) { %> 
+
+<%-macro(mixin_head) %>
+
+	<div class="page-container row-fluid">
+		<% include ../common/sidebar.ejs  %>
+		<div class="page-content">
+
+			<div class="container-fluid">
+
+				<div class="row-fluid">
+
+					<div class="span12">
+						<% include ../common/styleCustomizer.ejs %>
+
+						<h3 class="page-title">
+							Blank Page <small>blank page</small>
+						</h3>
+
+						<%-macro(content) %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%-macro(mixin_foot, js) %>
+
+<% } %>

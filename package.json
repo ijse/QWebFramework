@@ -1,0 +1,34 @@
+{
+  "name": "JetServer",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "coffee server.coffee"
+  },
+  "dependencies": {
+    "express": "3.3.4",
+    "coffee-script": "1.x",
+    "coffee-middleware": "*",
+    "ejs": "*",
+    "eco": "*",
+    "consolidate": "*",
+    "mongoskin": "*",
+    "tracer": "*",
+    "less-middleware": "*"
+  },
+  "gitHead": "ab6685deb8123b8cf41a781a0d0f8feb25e30bb3",
+  "description": "ERROR: No README data found!",
+  "main": "server.coffee",
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/ijse/jetserver.git"
+  },
+  "keywords": [
+    "web",
+    "server"
+  ],
+  "author": "ijse",
+  "license": "BSD"
+}

@@ -1,0 +1,11 @@
+<% include ../layout/main.ejs %>
+
+<% var content = function(buf) { %>
+
+	<% for(var i=0; i<apps.length; i++) {%>
+	   <li><%= apps[i].name %></li>
+	<% } %>
+
+<% } %>
+
+<%-macro(layout.main, content) %>
